@@ -1,5 +1,6 @@
 
 
+
 class Spaceship {
     constructor (hull=0, firepower=0, accuracy=0){
         this.hull = randomHull(3,6);
@@ -8,11 +9,6 @@ class Spaceship {
 
     }
 }
-
-
-let USS_Assembly = new Spaceship(20, 5, .7);
-
-console.log(USS_Assembly);
 
 
 
@@ -58,15 +54,36 @@ function randomAccuracy(min,max){
    return  parseFloat(randNum.toFixed(2));
 }
 
+///ACTIONS
 
-for (let index = 0; index < 100; index++) {
+function attack(object){
+    
 
-console.log("Hull",randomHull(3,6));
-console.log("FirePower",randomFirePower(2,4));
-console.log("Accuracy",randomAccuracy(.6,.8));
+
+}
+// for (let index = 0; index < 100; index++) {
+
+// console.log("Hull",randomHull(3,6));
+// console.log("FirePower",randomFirePower(2,4));
+// console.log("Accuracy",randomAccuracy(.6,.8));
 
     
-}
+// }
+
+let USS_Assembly = new Spaceship(20, 5, .7);
+
+console.log(USS_Assembly);
+
+let ship1 = new Spaceship();
+let ship2 = new Spaceship();
+let ship3 = new Spaceship();
+let ship4 = new Spaceship();
+let ship5 = new Spaceship();
+let ship6 = new Spaceship();
 
 
 
+
+
+
+console.log({ship1},"\n",{ship2},"\n",{ship3},"\n",{ship4},"\n",{ship5},"\n");

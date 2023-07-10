@@ -43,3 +43,6 @@ firepower - between 2and 4
 accuracy - between .6and .8
 You could be battling six alien ships each with unique values.
 
+## Gameplay
+Ships should be able to attak one another
+Enemy has 6 ships
