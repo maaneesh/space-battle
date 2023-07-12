@@ -1,5 +1,10 @@
 
 
+//global Vars
+let shipCount=0;
+
+
+//Classes
 
 class Spaceship {
     constructor (hull=0, firepower=0, accuracy=0){
@@ -8,13 +13,15 @@ class Spaceship {
         this.accuracy = randomAccuracy(.6,.8);
 
     }
+
+
 }
 
 
 
 // hull - between 3 and 6
 function randomHull(min,max){
-    let randNum = Math.random()* (max-min);
+    let randNum = Math.random()*(max-min);
 
     if (randNum < min){
        randNum = Math.round(randNum)+min;
@@ -27,7 +34,7 @@ function randomHull(min,max){
 // firepower - between 2 and 4
 function randomFirePower(min,max){
 
-    let randNum = Math.random()* (max-min);
+    let randNum = Math.random()*(max-min);
 
     if (randNum < min){
        randNum = Math.round(randNum)+min;
@@ -54,36 +61,31 @@ function randomAccuracy(min,max){
    return  parseFloat(randNum.toFixed(2));
 }
 
-///ACTIONS
+///FUNCTIONS
 
-function attack(object){
+function attack(){
     
 
 
 }
-// for (let index = 0; index < 100; index++) {
 
-// console.log("Hull",randomHull(3,6));
-// console.log("FirePower",randomFirePower(2,4));
-// console.log("Accuracy",randomAccuracy(.6,.8));
+function generateSpaceship(){
+    return new Spaceship();
+}
 
-    
-// }
+
+
+
+//Testing
 
 let USS_Assembly = new Spaceship(20, 5, .7);
 
-console.log(USS_Assembly);
+console.log({USS_Assembly});
 
-let ship1 = new Spaceship();
-let ship2 = new Spaceship();
-let ship3 = new Spaceship();
-let ship4 = new Spaceship();
-let ship5 = new Spaceship();
-let ship6 = new Spaceship();
+let enemies = [];
+for (let i = 0; i <6; i++) {
+ enemies.push(generateSpaceship());
+}
 
-
-
-
-
-
-console.log({ship1},"\n",{ship2},"\n",{ship3},"\n",{ship4},"\n",{ship5},"\n");
+// console.log("Enemy Ship count: ",{shipCount});
+console.log("array of enemies: ", {enemies});
