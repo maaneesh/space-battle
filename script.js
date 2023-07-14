@@ -10,9 +10,9 @@
 
 class AlienSpaceship {
     constructor (hull=0, firepower=0, accuracy=0){
-        this.hull = randomHull(3,6);
-        this.firepower = randomFirePower(2,4);
-        this.accuracy = randomAccuracy(.6,.8);
+        this.hull = this.randomHull(3,6);
+        this.firepower = this.randomFirePower(2,4);
+        this.accuracy = this.randomAccuracy(.6,.8);
 
     }
 
@@ -77,9 +77,15 @@ console.log("Space-battle begins!");
 let USS_Assembly =  new HumanSpaceShip(20,5,.7);
 console.log("My Stats:\n ",USS_Assembly.accuracy);
 
-
-
 console.log(USS_Assembly);
+
+let enemies = [];
+for( let i=0; i<6; i++){
+    enemies.push( new AlienSpaceship());
+    
+}
+
+console.log({enemies});
 
 
 
