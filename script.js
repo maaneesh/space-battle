@@ -5,11 +5,24 @@
 
 
 //Classes
+class AttackingMechanism{
+    attack(enemy){
+        if(this.accuracy > enemy.accuracy){
+            console.log("It's a direct hit!");
+            console.log("Damage: -", this.firepower);
+            enemy.hull -= this.firepower;
+            if (enemy.hull <= 0){
+                console.log("Spaceship has fallen!");
+            }
+        }
+
+    }
+}
 
 
-
-class AlienSpaceship {
+class AlienSpaceship extends AttackingMechanism{
     constructor (hull=0, firepower=0, accuracy=0){
+        super();
         this.hull = this.randomHull(3,6);
         this.firepower = this.randomFirePower(2,4);
         this.accuracy = this.randomAccuracy(.6,.8);
@@ -59,8 +72,9 @@ class AlienSpaceship {
 
 }
 
-class HumanSpaceShip{
+class HumanSpaceship extends AttackingMechanism{
     constructor(hull, firepower, accuracy){
+        super();
         this.hull = hull;
         this.firepower=firepower;
         this.accuracy=accuracy;
@@ -72,80 +86,24 @@ class HumanSpaceShip{
 
 //GAME BEGINS
 
-console.log("Space-battle begins!");
+console.log("Space-battle begins!\n");
 // //myShip
-let USS_Assembly =  new HumanSpaceShip(20,5,.7);
-console.log("My Stats:\n ",USS_Assembly.accuracy);
+let USS_Assembly =  new HumanSpaceship(20,5,.7);
+console.log("My Stats:\n ",USS_Assembly);
 
 console.log(USS_Assembly);
 
-let enemies = [];
+let enemies= [];
 for( let i=0; i<6; i++){
     enemies.push( new AlienSpaceship());
     
 }
 
-console.log({enemies});
+console.log(enemies,"\n");
+console.log("You attacked first! ");
+USS_Assembly.attack(enemies[0]);
+console.log(enemies[0]);
 
+enemies[0].attack(USS_Assembly);
+console.log(USS_Assembly);
 
-
-// let inWar= true;
-
-
-
-// //let USS_Assembly = new Spaceship(20, 5, .7);
-
-
-
-
-
-
-
-// //console.log(enemies[0].accuracy,enemies[0].hull, enemies[0].accuracy);
-// console.log("total enemyShips: ",shipCount);
-// //console.log(USS_Assembly.accuracy,USS_Assembly.hull, USS_Assembly.accuracy);
-
-
-
-// let enemy1 = attack.bind(enemies[0]);
-// enemy1();
-
-
-// // battleLoop();
-
-// // function battleLoop (){
-
-// //     for (let i=0 ; i<shipCount; i++){
-// //         enemies[0]= attack.bind(enemies[0]);
-// //         enemies[0];
-       
-// //     }
-
-// // }
-
-
-// function updateShipCount() {
-
-    
-// }
-// function peaceRestored(){
-//     console.log("world peace!");
-// }
-
-
-// let enemy1 = stats.bind(enemies[0]);
-// let enemy2 = stats.bind(enemies[1]);
-// let enemy3 = stats.bind(enemies[2]);
-// let enemy4 = stats.bind(enemies[3]);
-// let enemy5 = stats.bind(enemies[4]);
-// let enemy6 = stats.bind(enemies[5]);
-
-
-
-// console.log("enemy1:",enemy1());
-// console.log("enemy2:",enemy2());
-// console.log("enemy3:",enemy3());
-// console.log("enemy4:",enemy4());
-// console.log("enemy5:",enemy5());
-// console.log("enemy6:",enemy6());
-// console.log("myship :",mySpaceship());
